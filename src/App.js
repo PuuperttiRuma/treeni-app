@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import MainMenu from './components/MainMenu.js'
 
-function App() {
+
+const App = () => {
+  const [timer, setTimer] = useState(0)
+  const [play, setPlay] = useState(false)
+
+  if (play) setTimeout( () => setTimer(timer + 1), 10 )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    < div >
+      <p>KYYKKY</p>
+      <p>50kg</p>
+      <p>5 toistoa</p>
+
+      <button onClick={() => setPlay(true) }>Start</button>
+      {timer}
+
+      <MainMenu />
+    </div >
+  )
 }
 
 export default App;

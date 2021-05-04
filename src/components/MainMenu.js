@@ -18,7 +18,11 @@ const MainMenu = () => {
       Kun start nappulaa painetaan kello alkaa pyöriä ja "Start"-nappi
       muuttuu "Done!" nappulaksi. Käyttäjä tekee liikkeen ja kun liike
       on tehty, käyttäjä painaa "Done!" nappia.
-    
+        Tämän jälkeen lähtee käyntiin palautumislaskuri. Kun palautumis-
+      laskuri on päässyt nollaan (laskee alaspäin), kuuluu merkkiääni,
+      jonka jälkeen käyttäjä joko painaa "Start" nappulaa, tai seuraava
+      liike tulee automaattisesti suoritettavaksi. Käyttäjä voi itse
+      päättää, mutta defaulttina automaattisesti.
       </p>
     </div>
   )
