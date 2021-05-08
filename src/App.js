@@ -1,5 +1,4 @@
 import React from 'react'
-import CountdownTimer from './components/CountdownTimer.js'
 import MainMenu from './components/MainMenu.js'
 import Timer from './components/Timer.js'
 
