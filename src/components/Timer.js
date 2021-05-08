@@ -11,10 +11,8 @@ const Timer = ({ isCountingUp, startTime }) => {
   };
 
   useEffect(() => {
-    if (time > 0) {
-      setMinutes(Math.floor(time / 60));
-      setSeconds(time % 60);
-    }
+    setMinutes(Math.floor(Math.abs(time) / 60));
+    setSeconds(Math.abs(time) % 60);
   }, [time]);
 
   //Kellon siirtäminen
@@ -35,6 +33,7 @@ const Timer = ({ isCountingUp, startTime }) => {
   return (
     <div>
       <div>
+        {time < 0 ? "-" : ""}
         {minutes}:
         {seconds.toLocaleString("en-US", {
           minimumIntegerDigits: 2,
