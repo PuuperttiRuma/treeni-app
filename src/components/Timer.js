@@ -10,13 +10,13 @@ const Timer = ({ isCountingUp, startTime }) => {
     setIsActive(!isActive);
   };
 
-  //Ajan muotoilu minuuteiksi ja sekunneiksi
+  //Formatting the time to minutes and seconds
   useEffect(() => {
     setMinutes(Math.floor(Math.abs(time) / 60));
     setSeconds(Math.abs(time) % 60);
   }, [time]);
 
-  //Kellon siirtäminen
+  //Updating the time
   useEffect(() => {
     let interval = null;
     if (isActive) {
