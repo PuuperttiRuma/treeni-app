@@ -10,6 +10,7 @@ const Timer = ({ isCountingUp, startTime }) => {
     setIsActive(!isActive);
   };
 
+  //Ajan muotoilu minuuteiksi ja sekunneiksi
   useEffect(() => {
     setMinutes(Math.floor(Math.abs(time) / 60));
     setSeconds(Math.abs(time) % 60);
