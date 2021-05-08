@@ -10,7 +10,7 @@ const App = () => {
       <p>50kg</p>
       <p>5 toistoa</p>
       <Timer isCountingUp={true} startTime={0} />
-      <Timer isCountingUp={false} startTime={120} />
+      <Timer isCountingUp={false} startTime={2} />
       <MainMenu />
     </div >
   )
