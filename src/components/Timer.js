@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const Timer = () => {
-  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(58);
   const [isActive, setIsActive] = useState(false);
 
   const toggle = () => {
@@ -12,7 +13,12 @@ const Timer = () => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
+        if (seconds < 59){
+          setSeconds((seconds) => seconds + 1);
+        } else {
+          setSeconds(0)
+          setMinutes((minutes) => minutes + 1);
+        }        
       }, 1000);
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
@@ -22,8 +28,8 @@ const Timer = () => {
 
   return (
     <div>
+      <div>{minutes}:{seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})}</div>
       <button onClick={toggle}>{isActive ? "Pause" : "Start"}</button>
-      {seconds}
     </div>
   );
 };
