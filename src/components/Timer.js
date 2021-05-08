@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const Timer = () => {
-  const [seconds, setSeconds] = useState(58);
+const Timer = ({isCountingUp, startTime}) => {
+  console.log(isCountingUp, startTime)
+  const [seconds, setSeconds] = useState(startTime);
   const [isActive, setIsActive] = useState(false);
-  const [isCountingUp, setIsCountingUp] = useState(true);
 
   const toggle = () => {
     setIsActive(!isActive);
