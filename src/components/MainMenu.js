@@ -14,7 +14,9 @@ const MainMenu = () => {
       Käyttäjä haluaa tehdä treenin. Hän painaa "tee treeni" nappulaa.
       Appi näyttää, mikä on ensimmäinen tehtävä liike, montako niitä
       tehdään tai kauanko. Sen alla on iso vihreä "Start" nappula.
+      </p>
       <h3>Tasaisilla palautuksilla tehtävä liike</h3>
+      <p>
       Kun start nappulaa painetaan kello alkaa pyöriä ja "Start"-nappi
       muuttuu "Done!" nappulaksi. Käyttäjä tekee liikkeen ja kun liike
       on tehty, käyttäjä painaa "Done!" nappia.
