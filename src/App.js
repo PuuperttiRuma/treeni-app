@@ -1,6 +1,4 @@
 import React from 'react'
-import MainMenu from './components/MainMenu.js'
-import Timer from './components/Timer.js'
 import EMOM from './components/EMOM'
 
 const App = () => {

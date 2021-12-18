@@ -13,13 +13,17 @@ const EMOM = ({ numberOfSets, numberOfReps }) => {
         setCurrentSet(currentSet + 1)
     }
 
+    const handleTimerZero = () => {
+        console.log("EMOM: Timer zero");
+    }
+
     return (
         <div>
             <h2>10x10 Swings</h2>
             <h3>Set {currentSet}/{numberOfSets}</h3>
             <h4>Do {numberOfReps} reps!</h4>
             <h4>                
-                <Timer isCountingUp={false} startTime={10} />
+                <Timer isCountingUp={false} startTime={5} onReachZero={handleTimerZero} />
             </h4>
             <button onClick={goToNextSet}>Next Set</button>
         </div>
