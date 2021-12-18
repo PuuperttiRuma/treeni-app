@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const Timer = ({ isCountingUp, startTime, onReachZero }) => {
+const Timer = ({ isCountingUp, startTime, onReachZero, isActive }) => {
   const [time, setTime] = useState(startTime);
-  const [isActive, setIsActive] = useState(false);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-
-  const toggle = () => {
-    setIsActive(!isActive);
-  };
-
-  const reset = () => {
-    setTime(startTime);
-    setIsActive(false);
-  };
 
   //Formatting the time to minutes and seconds
   useEffect(() => {
@@ -54,7 +44,6 @@ const Timer = ({ isCountingUp, startTime, onReachZero }) => {
           useGrouping: false,
         })}
       </div>
-      <button onClick={toggle}>{isActive ? "Pause" : "Start"}</button>
     </div>
   );
 };
