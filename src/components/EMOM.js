@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Timer from "./Timer.js";
 
 /***
@@ -7,6 +7,7 @@ import Timer from "./Timer.js";
  * Tajusinpa juuri, että timerin pitää ilmoittaa, kun se on valmis, jotta osaa ruveta tekemään jotain
  */
 const EMOM = ({ numberOfSets, numberOfReps }) => {
+  const [time, setTime] = useState(5);
   const [currentSet, setCurrentSet] = useState(1);
   const [isTimerActive, setIsTimerActive] = useState(false);
 
@@ -14,12 +15,19 @@ const EMOM = ({ numberOfSets, numberOfReps }) => {
     setCurrentSet(currentSet + 1);
   };
 
-  const handleTimerZero = () => {
-    console.log("EMOM: Timer zero");
-  };
-
   const handlePlayButtonPress = () => {
     setIsTimerActive(!isTimerActive);
+  };
+
+  //Timer is zero
+  useEffect(() => {
+    if (time === 0) {
+      console.log("Timer zero!");
+    }
+  }, [time]);
+
+  const handleTimerTick = () => {
+    setTime((seconds) => seconds - 1)
   }
 
   return (
@@ -31,13 +39,14 @@ const EMOM = ({ numberOfSets, numberOfReps }) => {
       <h4>Do {numberOfReps} reps!</h4>
       <h4>
         <Timer
-          isCountingUp={false}
-          startTime={5}
-          onReachZero={handleTimerZero}
+          time={time}
           isActive={isTimerActive}
+          onTimerTick={handleTimerTick}
         />
       </h4>
-      <button onClick={handlePlayButtonPress}>{isTimerActive ? "Pause" : "Start"}</button>
+      <button onClick={handlePlayButtonPress}>
+        {isTimerActive ? "Pause" : "Start"}
+      </button>
       <button onClick={goToNextSet}>Next Set</button>
     </div>
   );

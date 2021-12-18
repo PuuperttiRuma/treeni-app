@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Timer = ({ isCountingUp, startTime, onReachZero, isActive }) => {
-  const [time, setTime] = useState(startTime);
+const Timer = ({ time, isActive, onTimerTick }) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
@@ -11,28 +10,18 @@ const Timer = ({ isCountingUp, startTime, onReachZero, isActive }) => {
     setSeconds(Math.abs(time) % 60);
   }, [time]);
 
-  //Timer is zero
-  useEffect(() => {
-    if (time === 0) {
-      console.log("Timer: Timer zero!");
-      onReachZero();
-    }
-  }, [time, onReachZero]);
-
   //Updating the time
   useEffect(() => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
-        isCountingUp
-          ? setTime((seconds) => seconds + 1)
-          : setTime((seconds) => seconds - 1);
+          onTimerTick();
       }, 1000);
     } else if (!isActive && time !== 0) {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isActive, time, isCountingUp]);
+  }, [isActive, time, onTimerTick]);
 
   return (
     <div>
