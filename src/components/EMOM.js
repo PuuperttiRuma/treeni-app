@@ -4,10 +4,9 @@ import Timer from "./Timer.js";
 /***
  * Esimerkkitapaus:
  * 10x10 Swingiä 10min
- * Tajusinpa juuri, että timerin pitää ilmoittaa, kun se on valmis, jotta osaa ruveta tekemään jotain
  */
-const EMOM = ({ numberOfSets, numberOfReps }) => {
-  const [time, setTime] = useState(5);
+const EMOM = ({ numberOfSets, numberOfReps, setDuration }) => {
+  const [time, setTime] = useState(setDuration);
   const [currentSet, setCurrentSet] = useState(1);
   const [isTimerActive, setIsTimerActive] = useState(false);
 
@@ -22,13 +21,14 @@ const EMOM = ({ numberOfSets, numberOfReps }) => {
   //Timer is zero
   useEffect(() => {
     if (time === 0) {
-      console.log("Timer zero!");
+      setTime(setDuration);
+      setCurrentSet(currentSet + 1);
     }
-  }, [time]);
+  }, [currentSet, setDuration, time]);
 
   const handleTimerTick = () => {
-    setTime((seconds) => seconds - 1)
-  }
+    setTime((seconds) => seconds - 1);
+  };
 
   return (
     <div>
