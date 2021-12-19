@@ -4,7 +4,7 @@ import EMOM from './components/EMOM'
 const App = () => {
   return (
     < div >
-      <EMOM numberOfSets={5} numberOfReps={10} setDuration={5} />
+      <EMOM numberOfSets={2} numberOfReps={10} setDuration={3} />
     </div >
   )
 }

@@ -18,13 +18,17 @@ const EMOM = ({ numberOfSets, numberOfReps, setDuration }) => {
     setIsTimerActive(!isTimerActive);
   };
 
-  //Timer is zero
+  //Timer reaches zero
   useEffect(() => {
     if (time === 0) {
-      setTime(setDuration);
-      setCurrentSet(currentSet + 1);
+      if (currentSet === numberOfSets) {
+        console.log("Done!");
+      } else {
+        setTime(setDuration);
+        setCurrentSet(currentSet + 1);
+      }
     }
-  }, [currentSet, setDuration, time]);
+  }, [currentSet, numberOfSets, setDuration, time]);
 
   const handleTimerTick = () => {
     setTime((seconds) => seconds - 1);
