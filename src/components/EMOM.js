@@ -5,8 +5,8 @@ import Timer from "./Timer.js";
  * Esimerkkitapaus:
  * 10x10 Swingiä 10min
  */
-const EMOM = ({ numberOfSets, numberOfReps, setDuration }) => {
-  const [time, setTime] = useState(setDuration);
+const EMOM = ({ numberOfSets, numberOfReps, setDurationSecs }) => {
+  const [time, setTime] = useState(setDurationSecs*10);
   const [currentSet, setCurrentSet] = useState(1);
   const [isTimerActive, setIsTimerActive] = useState(false);
 
@@ -24,14 +24,14 @@ const EMOM = ({ numberOfSets, numberOfReps, setDuration }) => {
       if (currentSet === numberOfSets) {
         console.log("Done!");
       } else {
-        setTime(setDuration);
+        setTime(setDurationSecs);
         setCurrentSet(currentSet + 1);
       }
     }
-  }, [currentSet, numberOfSets, setDuration, time]);
+  }, [currentSet, numberOfSets, setDurationSecs, time]);
 
   const handleTimerTick = () => {
-    setTime((seconds) => seconds - 1);
+    setTime((time) => time - 1);
   };
 
   return (
