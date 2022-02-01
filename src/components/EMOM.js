@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Timer from "./Timer.js";
+import PreciseTimer from "./Timer.js";
 
 /***
  * Esimerkkitapaus:
  * 10x10 Swingiä 10min
  */
 const EMOM = ({ numberOfSets, numberOfReps, setDurationSecs }) => {
-  const [time, setTime] = useState(setDurationSecs*10);
+  const [time, setTime] = useState(setDurationSecs);
   const [currentSet, setCurrentSet] = useState(1);
   const [isTimerActive, setIsTimerActive] = useState(false);
 
@@ -42,7 +42,7 @@ const EMOM = ({ numberOfSets, numberOfReps, setDurationSecs }) => {
       </h3>
       <h4>Do {numberOfReps} reps!</h4>
       <h4>
-        <Timer
+        <PreciseTimer
           time={time}
           isActive={isTimerActive}
           onTimerTick={handleTimerTick}
