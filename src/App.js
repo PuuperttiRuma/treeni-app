@@ -1,10 +1,11 @@
 import React from 'react'
 import EMOM from './components/EMOM'
+import Workout from './components/Workout';
 
 const App = () => {
   return (
     < div >
-      <EMOM numberOfSets={2} numberOfReps={10} setDurationSecs={60} />
+      <Workout />      
     </div >
   )
 }
