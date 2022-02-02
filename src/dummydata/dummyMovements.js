@@ -2,7 +2,7 @@ const exercises = [
   {
     fullName: "Bulgarian Split Squat",
     shortName: "Bulg SS",
-    sets: "2",
+    sets: '2',
     reps: "8/8",
     weight: "10kg",
     type: "lift",
@@ -12,7 +12,7 @@ const exercises = [
   {
     fullName: "Pushup",
     shortName: "Pushup",
-    sets: "2",
+    sets: 2,
     reps: "8",
     weight: "BW",
     type: "lift",
@@ -22,7 +22,7 @@ const exercises = [
   {
     fullName: "KB 2-handed Swing",
     shortName: "KB 2H Swing ",
-    sets: "EMOM 6",
+    sets: 6,
     reps: "6",
     weight: "12kg",
     type: "EMOM",

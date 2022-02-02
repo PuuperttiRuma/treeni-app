@@ -9,6 +9,7 @@ const Workout = () => {
 
   const handleStartWorkout = () => {
     setWorkoutStarted(true);
+    setCurrentMovement(movements[0])
   };
 
   if (!workoutStarted) {
@@ -22,7 +23,7 @@ const Workout = () => {
   if (workoutStarted) {
     return (
       <div>
-        <Lift />
+        <Lift movement={currentMovement}/>
       </div>
     );
   }
