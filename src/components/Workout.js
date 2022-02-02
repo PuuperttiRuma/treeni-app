@@ -1,57 +1,28 @@
 import React, { useState } from "react";
-import ExerciseList from "./ExerciseList";
-import EMOM from "./EMOM";
-
-const exercises = [
-  {
-    fullName: "Bulgarian Split Squat",
-    shortName: "Bulg SS",
-    sets: "2",
-    reps: "8/8",
-    weight: "10kg",
-    type: "lift",
-    rest: 120,
-    avgSetTime: 60,
-  },
-  {
-    fullName: "Pushup",
-    shortName: "Pushup",
-    sets: "2",
-    reps: "8",
-    weight: "BW",
-    type: "lift",
-    rest: 120,
-    avgSetTime: 30,
-  },
-  {
-    fullName: "KB 2-handed Swing",
-    shortName: "KB 2H Swing ",
-    sets: "EMOM 6",
-    reps: "6",
-    weight: "12kg",
-    type: "EMOM",
-  },
-];
+import MovementList from "./MovementList";
+import Lift from "./Lift";
+import movements from "../dummydata/dummyMovements";
 
 const Workout = () => {
-  const [isWorkoutOn, setIsWorkoutOn] = useState(false);
+  const [workoutStarted, setWorkoutStarted] = useState(false);
+  const [currentMovement, setCurrentMovement] = useState('')
 
   const handleStartWorkout = () => {
-    setIsWorkoutOn(true);
+    setWorkoutStarted(true);
   };
 
-  if (!isWorkoutOn) {
+  if (!workoutStarted) {
     return (
       <div>
-        <ExerciseList exercises={exercises} />
+        <MovementList movements={movements} />
         <button onClick={handleStartWorkout}>Start Workout</button>
       </div>
     );
   }
-  if (isWorkoutOn) {
+  if (workoutStarted) {
     return (
       <div>
-        <EMOM  />
+        <Lift />
       </div>
     );
   }
