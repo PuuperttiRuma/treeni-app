@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import ExerciseList from "./ExerciseList";
+import EMOM from "./EMOM";
 
 const exercises = [
   {
@@ -33,18 +34,27 @@ const exercises = [
 ];
 
 const Workout = () => {
-  
+  const [isWorkoutOn, setIsWorkoutOn] = useState(false);
 
   const handleStartWorkout = () => {
-    
-  }
+    setIsWorkoutOn(true);
+  };
 
-  return (
-    <div>
-      <ExerciseList exercises={exercises} />
-      <button onClick={handleStartWorkout}>Start Workout</button>
-    </div>
-  );
+  if (!isWorkoutOn) {
+    return (
+      <div>
+        <ExerciseList exercises={exercises} />
+        <button onClick={handleStartWorkout}>Start Workout</button>
+      </div>
+    );
+  }
+  if (isWorkoutOn) {
+    return (
+      <div>
+        <EMOM  />
+      </div>
+    );
+  }
 };
 
 export default Workout;
